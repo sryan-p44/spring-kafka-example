@@ -1,0 +1,14 @@
+# Gradle build output
+.gradle
+build/
+
+# Intellij build output
+out/
+classes/
+bin/
+
+### Intellij ###
+*.iml
+*.ipr
+*.iws
+.idea/*
