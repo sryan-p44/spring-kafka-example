@@ -18,8 +18,10 @@ public class SampleErrorHandler implements ErrorHandler {
         System.out.printf("Error processing kafka message. \n" +
                 "topic: %s \n" +
                 "partition: %s \n" +
+                "offset: %s \n" +
+                "key: %s \n" +
                 "timestamp: %s",
-                data.topic(), data.partition(), data.timestamp());
+                data.topic(), data.partition(), data.offset(), data.key(), data.timestamp());
 
     }
 }
