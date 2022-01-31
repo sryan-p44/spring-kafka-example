@@ -2,16 +2,22 @@ package example;
 
 import org.springframework.kafka.annotation.KafkaHandler;
 import org.springframework.kafka.annotation.KafkaListener;
+import org.springframework.scheduling.annotation.Async;
 
-@KafkaListener(topics = "test")
+import java.util.Date;
+
+@KafkaListener(topics = "messages.1000")
 public class SampleKafkaListener {
 
     @KafkaHandler
+    @Async
     public void handle(String s) throws Exception {
-        if (s.equals("fail")) {
-            throw new Exception("fail");
-        }
-        System.out.println(s);
+
+        System.out.println(new Date() + " " + s + " " + Thread.currentThread().getName());
+
+        Thread.sleep(10000);
+        System.out.println("Done " + s);
+
     }
 
 }
