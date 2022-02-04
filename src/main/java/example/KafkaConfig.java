@@ -26,6 +26,8 @@ public class KafkaConfig {
         props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class);
         props.put(ConsumerConfig.GROUP_ID_CONFIG, "example-group");
         props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
+        //props.put(ConsumerConfig.MAX_POLL_RECORDS_CONFIG, 2);
+        //props.put(ConsumerConfig.MAX_POLL_INTERVAL_MS_CONFIG, 10000);
 
         return props;
     }
@@ -41,6 +43,7 @@ public class KafkaConfig {
         ConcurrentKafkaListenerContainerFactory<String, String> factory = new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(new DefaultKafkaConsumerFactory<>(consumerConfigs()));
         factory.setErrorHandler(new SampleErrorHandler());
+        //factory.setConcurrency(4);
 
         return factory;
     }

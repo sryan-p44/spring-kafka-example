@@ -3,7 +3,7 @@ package example;
 import org.springframework.kafka.annotation.KafkaHandler;
 import org.springframework.kafka.annotation.KafkaListener;
 
-@KafkaListener(topics = "test")
+@KafkaListener(topics = "topic.with.2.partitions")
 public class SampleKafkaListener {
 
     @KafkaHandler
@@ -12,6 +12,8 @@ public class SampleKafkaListener {
             throw new Exception("fail");
         }
         System.out.println(s);
+
+        Thread.sleep(5000);
     }
 
 }

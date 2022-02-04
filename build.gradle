@@ -28,5 +28,6 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.kafka:spring-kafka:2.5.14.RELEASE")
     testCompile("junit:junit")
+    testCompile( "org.springframework.boot:spring-boot-starter-test" )
 }
 
